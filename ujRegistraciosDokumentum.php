@@ -5,7 +5,7 @@
     <title>Uj Szöveges Dokumentum</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="icon" type="image/png" href="Text-txt.svg"/>
-	<link rel="stylesheet" type="text/css" href="Új szöveges dokumentum.css"/>
+	<link rel="stylesheet" type="text/css" href="ujszovegesdokumentum.css"/>
   </head>
   <body>
 	<div class="container">
@@ -16,10 +16,10 @@
   <input type="password" name="passwordconf" value="Jelszó Megerõsítése"/>
   <input type="text" name="email" value="E-mail cím"/>
   <input type="text" name="emailconf" value="E-mail cím Megerõsítése"/>
-  <input type="button" name="button" value="Regisztáció"/>
+  <input type="submit" name="button" value="Regisztáció"/>
 
 	<?php
-  $name=$_POST["name"];
+  $name=$_POST['usname'];
   $password=$_POST['password'];
   $passwordconf=$_POST['passwordconf'];
   $email=$_POST['email'];
@@ -27,17 +27,23 @@
   if (isset($name)&&isset($password)&&isset($passwordconf)&&isset($email)&&isset($emailconf)&&$password==$passwordconf&&$emailconf==$email) {
 $servername = "localhost";
 $username = "root";
-$password = "";
 $dbname = "ujadatbazisdokumentum";
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, "", $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $sql = "INSERT INTO ujtabladokumentum (username, password, email)
-VALUES ('$name', '$password', '$email')";
+VALUES ('$name', '$password', '$email');";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
-if($password!=$passwordconf){echo "<h2>Nem egyeznek a jelszók</h2>"}
-if($email!=$emailconf){echo "<h2>Nem egyeznek az e-mailcímek</h2>"}
+}
+print $password;
+print $passwordconf;
+if($password!=$passwordconf){echo "<h2>Nem egyeznek a jelszók</h2>";}
+if($email!=$emailconf){echo "<h2>Nem egyeznek az e-mailcímek</h2>";}
 ?>
     </div>
   </form>
