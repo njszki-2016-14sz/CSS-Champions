@@ -16,7 +16,10 @@ margin-bottom: 40px;
 div.container{
 width: 900px;
 height: 610px;
-margin:35px auto;
+margin-right: auto;
+margin-left:auto;
+
+
 font-family: 'Raleway', sans-serif;
 }
 div.main{
@@ -24,6 +27,7 @@ width: 300px;
 padding: 10px 50px 25px;
 border: 2px solid gray;
 border-radius: 10px;
+
 font-family: raleway;
 float:left;
 margin-top:50px;

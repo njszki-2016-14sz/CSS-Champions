@@ -1,3 +1,26 @@
+<?php
+$username = $_POST["username"];
+$password = $_POST["password"];
+ $db = mysql_connect('localhost', 'root', '');
+  if(!$db){
+    die('Connection error: '.mysql_error());
+  }
+  $table = mysql_select_db('ujadatbazisdokumentum', $db);
+  if(!$table){
+    die('Table selection error: '.mysql_error());
+  }
+  $queryString = "SELECT * FROM ujtabladokumentum WHERE id='$username';";
+  $resultid = mysql_query($queryString, $db);
+  if(!$resultid){
+    die('Select query error: '.mysql_error());
+  }
+  
+  $result = mysql_fetch_assoc($resultid);
+  print_r($result);
+ if( $result['$password']==$password){
+	 
+ }
+  ?>
 <html>
 <head>
 <title>Új szöveges dokumentum</title>
