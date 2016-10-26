@@ -15,7 +15,7 @@
   <input type="password" name="passwordconf" value="Jelszó Megerõsítése"/>
   <input type="text" name="email" value="E-mail cím"/>
   <input type="text" name="emailconf" value="E-mail cím Megerõsítése"/>
-  <input type="submit" name="button" value="Regisztáció"/>
+  <input type="button" name="button" value="Regisztáció"/>
     </div>
   </form>
 	</div>
