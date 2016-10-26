@@ -16,8 +16,31 @@
   <input type="text" name="email" value="E-mail cím"/>
   <input type="text" name="emailconf" value="E-mail cím Megerõsítése"/>
   <input type="button" name="button" value="Regisztáció"/>
+
+	<?php
+  $name=$_POST["name"];
+  $password=$_POST['password'];
+  $passwordconf=$_POST['passwordconf'];
+  $email=$_POST['email'];
+  $emailconf=$_POST['emailconf'];
+  if (isset($name)&&isset($password)&&isset($passwordconf)&&isset($email)&&isset($emailconf)&&$password==$passwordconf&&$emailconf==$email) {
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ujadatbazisdokumentum";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$sql = "INSERT INTO ujtabladokumentum (username, password, email)
+VALUES ('$name', '$password', '$email')";
+}
+if($password!=$passwordconf){echo "<h2>Nem egyeznek a jelszók</h2>"}
+if($email!=$emailconf){echo "<h2>Nem egyeznek az e-mailcímek</h2>"}
+?>
     </div>
   </form>
 	</div>
 </body>
 </html>
+  
