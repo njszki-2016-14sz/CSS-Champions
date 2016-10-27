@@ -1,0 +1,12 @@
+ujprojektdokumentum
+Version=3
+C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\ujprojekt
+
+easyphp
+
+2016. 10. 27. 10:47:57
+NO
+NO
+YES
+YES
+*.html;*.htm;*.vtm;*.vtml;*.asp;*.css;*.shtml;*.phtml;*.php;*.php3;*.xml;*.xsl;*.cfm;*.cfml;*.txt;*.pl;*.cgi;*.snp;*.js;*.vb;*.vbs;*.bas*.mid;*.wav;*.au;*.ra;*.ram;*.bmp;*.gif;*.jpg;*.jpeg;*.png;*.exe;

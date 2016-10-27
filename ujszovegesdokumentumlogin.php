@@ -1,26 +1,41 @@
 <?php
-$username = $_POST["username"];
-$password = $_POST["password"];
-print_r($_POST);
- $db = mysql_connect('localhost', 'root', '');
-  if(!$db){
-    die('Connection error: '.mysql_error());
-  }
-  $table = mysql_select_db('ujadatbazisdokumentum', $db);
-  if(!$table){
-    die('Table selection error: '.mysql_error());
-  }
-  $queryString = "SELECT * FROM ujtabladokumentum WHERE username='$username';";
-  $resultid = mysql_query($queryString, $db);
-  if(!$resultid){
-    die('Select query error: '.mysql_error());
-  }
+function loginf(){
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+	session_start();
+    $_SESSION['username']=$username;
+	$db = mysql_connect('localhost', 'root', '');
+	
+	if(!$db){
+		die('Connection error: '.mysql_error());
+	}
   
-  $result = mysql_fetch_assoc($resultid);
-  print_r($result);
- if( $result['password']==$password&&$password!=null){
-	 print("siker");
+	$table = mysql_select_db('ujadatbazisdokumentum', $db);
+  
+	if(!$table){
+		die('Table selection error: '.mysql_error());
+	}
+  
+	$queryString = "SELECT * FROM ujtabladokumentum WHERE username='$username';";
+	$resultid = mysql_query($queryString, $db);
+  
+	if(!$resultid){
+		die('Select query error: '.mysql_error());
+	}
+  
+	$result = mysql_fetch_assoc($resultid);
+	print_r($result);
+  
+	if( $result['password']==$password&&$password!=null){
+		$_SESSION['isloggedin']=true;
+		header("Location: /ujpostolodokumentum.php");
+        exit;
  }
+}
+ if(isset($_POST['send']))
+{
+   loginf();
+} 
   ?>
 <html>
 <head>
@@ -28,7 +43,7 @@ print_r($_POST);
 <!-- Include CSS File Here -->
 <link rel="stylesheet" href="ujszovegesdokumentum.css"/>
 <!-- Include JS File Here -->
-<script src="Új JÁVASKRIPT mappa/Új szöveges dokumentum.js"></script>
+<script src="ujjavasskriptmappa/ujszovegesdokumentum.js"></script>
 </head>
 <body>
 <div class="container">
@@ -39,7 +54,7 @@ print_r($_POST);
 <input type="text" name="username" id="username"/>
 <label>Password :</label>
 <input type="password" name="password" id="password"/>
-<input type="submit" value="Login" id="submit" onclick="validate()"/>
+<input type="submit" name="send" value="Login" id="submit" onclick="validate()"/>
 </form>
 </div>
 </div>
