@@ -66,7 +66,7 @@ padding: 3px 20px;
 border-radius: 2px;
 color: black;
 }
-input[type=button]{
+input[type=submit]{
 font-size: 16px;
 background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
 border: 1px solid #e5a900;
@@ -78,6 +78,6 @@ border-radius: 5px;
 padding: 10px 0;
 outline:none;
 }
-input[type=button]:hover{
+input[type=submit]:hover{
 background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
 }
