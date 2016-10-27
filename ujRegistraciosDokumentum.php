@@ -6,19 +6,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="icon" type="image/png" href="Text-txt.svg"/>
 	<link rel="stylesheet" type="text/css" href="ujszovegesdokumentum.css"/>
+	<script src="ujjavasskriptmappa/ujszovegesdokumentum.js"></script>
+	<script src="ujjavasskriptmappa/jquery-3.1.1.js"></script>
   </head>
   <body>
 	<div class="container">
   <form action="" method="post">
     <div class="main">
   <input type="text" name="usname" value="Felhasználónév"/>
-  <input type="password" name="password" value="Jelszó"/>
+  <span id="strength"></span>
+  <input name="passwordi" id="password" type="password" onkeyup="passwordChanged();" />
   <input type="password" name="passwordconf" value="Jelszó Megerõsítése"/>
   <input type="text" name="email" value="E-mail cím"/>
   <input type="text" name="emailconf" value="E-mail cím Megerõsítése"/>
   <input type="submit" name="button" value="Regisztáció"/>
 
 	<?php
+	function registerf(){
   $name=$_POST['usname'];
   $password=$_POST['password'];
   $passwordconf=$_POST['passwordconf'];
@@ -35,7 +39,7 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO ujtabladokumentum (username, password, email)
 VALUES ('$name', '$password', '$email');";
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "Sikeres regisztráció";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -44,6 +48,11 @@ print $password;
 print $passwordconf;
 if($password!=$passwordconf){echo "<h2>Nem egyeznek a jelszók</h2>";}
 if($email!=$emailconf){echo "<h2>Nem egyeznek az e-mailcímek</h2>";}
+ }
+ if(isset($_POST['send']))
+{
+   registerf();
+} 
 ?>
     </div>
   </form>

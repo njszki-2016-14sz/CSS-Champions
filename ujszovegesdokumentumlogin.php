@@ -28,9 +28,12 @@ function loginf(){
   
 	if( $result['password']==$password&&$password!=null){
 		$_SESSION['isloggedin']=true;
-		header("Location: /ujpostolodokumentum.php");
+		header("Location: /ujprojekt/index.html");
         exit;
  }
+	else{
+		
+	}
 }
  if(isset($_POST['send']))
 {
@@ -39,16 +42,15 @@ function loginf(){
   ?>
 <html>
 <head>
-<title>Új szöveges dokumentum</title>
-<!-- Include CSS File Here -->
+<title>Ãšj szÃ¶veges dokumentum</title>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="ujszovegesdokumentum.css"/>
-<!-- Include JS File Here -->
 <script src="ujjavasskriptmappa/ujszovegesdokumentum.js"></script>
 </head>
 <body>
 <div class="container">
 <div class="main">
-<h2>Lépj be az Uj szöveges dokumentum corporation weboldalára</h2>
+<h2>LÃ©pj be az Uj szÃ¶veges dokumentum corporation weboldalÃ¡ra</h2>
 <form id="form_id" method="post" name="myform">
 <label>User Name :</label>
 <input type="text" name="username" id="username"/>
