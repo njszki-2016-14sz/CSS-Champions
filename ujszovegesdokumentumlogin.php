@@ -58,6 +58,11 @@ function loginf(){
 <input type="password" name="password" id="password"/>
 <input type="submit" name="send" value="Login" id="submit" onclick="validate()"/>
 </form>
+<div class="regi-link">
+<p>Nincs még felhasználod ezen nagyszerű oldalon ?</p> 
+<p>És ezáltal nem tudsz Új szöveges postokat létrehozni?</p> 
+<a class="link" href="/ujRegistraciosDokumentum.php">Ide</a> Kattintva regisztrálhatsz
+</div>
 </div>
 </div>
 </body>
