@@ -13,12 +13,16 @@
 	<div class="container">
   <form action="" method="post">
     <div class="main">
-  <input type="text" name="usname" value="Felhasználónév"/>
-  <span id="strength"></span>
-  <input name="passwordi" id="password" type="password" onkeyup="passwordChanged();" />
-  <input type="password" name="passwordconf" value="Jelszó Megerősítése"/>
-  <input type="text" name="email" value="E-mail cím"/>
-  <input type="text" name="emailconf" value="E-mail cím Megerősítése"/>
+  <span id="username">Felhasználónév</span>
+  <input type="text" name="usname" value=""onkeyup="usernameChanged);" />
+  <span id="pass">Jelszó</span>
+  <input name="strength" id="password" type="password" onkeyup="passwordChanged();" />
+  <span id="passconf">Jelszó megerősítése</span>
+  <input type="password" name="passwordconf" value=""/>
+  <span id="email">E-mail cím</span>
+  <input type="text" name="email" value=""/>
+  <span id="emailconf">E-mail cím megerősítése</span>
+  <input type="text" name="emailconf" value=""/>
   <input type="submit" name="submit" value="Regisztáció"/>
 
 	<?php
