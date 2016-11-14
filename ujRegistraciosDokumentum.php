@@ -13,6 +13,7 @@
 	<div class="container">
   <form action="" method="post">
     <div class="main">
+	<h2>Regisztráció</h2>
   <input type="text" name="usname" value="Felhasználónév"/>
   <span id="strength"></span>
   <input name="passwordi" id="password" type="password" onkeyup="passwordChanged();" />

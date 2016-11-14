@@ -3,6 +3,7 @@ function loginf(){
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	session_start();
+	//unset($_SESSION);
     $_SESSION['username']=$username;
 	$db = mysql_connect('localhost', 'root', '');
 	
@@ -28,7 +29,8 @@ function loginf(){
   
 	if( $result['password']==$password&&$password!=null){
 		$_SESSION['isloggedin']=true;
-		header("Location: /ujprojekt/index.html");
+		$_SESSION['userdatas'] = $result;
+		header("Location: /ujprojekt/index.php");
         exit;
  }
 	else{
