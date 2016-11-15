@@ -14,12 +14,10 @@ border-top: 1px solid #ccc;
 margin-bottom: 40px;
 }
 div.container{
-width: 900px;
+width: 1050px;
 height: 610px;
 margin-right: auto;
 margin-left:auto;
-
-
 font-family: 'Raleway', sans-serif;
 }
 div.main{
@@ -27,10 +25,10 @@ width: 300px;
 padding: 10px 50px 25px;
 border: 2px solid gray;
 border-radius: 10px;
-
 font-family: raleway;
-float:left;
 margin-top:50px;
+margin-right: auto;
+margin-left:auto;
 }
 input[type=text],input[type=password]{
 width: 100%;
@@ -51,6 +49,10 @@ font-weight: bold;
 }
 center{
 font-size:32px;
+}
+.rule-2{
+margin-right: auto;
+margin-left:auto;
 }
 .note{
 color:red;

@@ -1,18 +1,54 @@
 /* Text Elements */
-
+input[type=text],input[type=password]{
+width: 40%;
+height: 25px;
+padding: 5px;
+margin-bottom: 5px;
+margin-top: 5px;
+border: 2px solid #ccc;
+color: #4f4f4f;
+font-size: 16px;
+border-radius: 5px;
+}
+input[type=submit]{
+font-size: 16px;
+background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+border: 1px solid #e5a900;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 42%;
+border-radius: 5px;
+padding: 10px 0;
+outline:none;
+margin-top: 10px;
+}
+input[type=submit]:hover{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
 h1.page-heading {
   margin-bottom: 0;
   color: #fff;
   font-weight: 700;
   font-size: 32px;
 }
-
+.fooldallink{
+	color: blue;
+}
 h2.heading-1 {
   color: #2d2d2d;
   font-weight: 700;
   font-size: 20px;
 }
+h2.heading-11 {
+  color: #2d2d2d;
+  font-weight: 700;
+  font-size: 20px;
+  text-align:center;
+}
+.heading-1{
 
+}
 p.paragraph.tagline {
   margin-top: 0;
   color: #ffb417;
@@ -83,6 +119,15 @@ div.rule.rule-1 {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 5px;
+  /*text-align: center;
+  margin:auto;*/
+}
+div.rule.rule-11 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  text-align: center;
+  margin:auto;
 }
 
 /* Interaction Elements */

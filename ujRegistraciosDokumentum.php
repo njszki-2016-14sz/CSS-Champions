@@ -13,10 +13,11 @@
 	<div class="container">
   <form action="" method="post">
     <div class="main">
+	<h2>Regisztráció</h2>
   <span>Username</span>
   <input type="text" name="usname" value=""/>
   <span id="strength">Type Password</span>
-  <input name="passwordi" id="password" type="password" onkeyup="passwordChanged();" onkeydown="passwordconfChanged()" />
+  <input name="password" id="password" type="password" onkeyup="passwordChanged();" onkeydown="passwordconfChanged()" />
   <span id="pasconfspan">Confirm password</span> 
   <input type="password" id="passwordconf" name="passwordconf" value="" onkeyup="passwordconfChanged();"/>
   <span id="e-mailspan">Type your e-mail adress</span>
@@ -53,7 +54,7 @@ print $passwordconf;
 if($password!=$passwordconf){echo "<h2>Nem egyeznek a jelszók</h2>";}
 if($email!=$emailconf){echo "<h2>Nem egyeznek az e-mailcímek</h2>";}
  }
- if(isset($_POST['send']))
+ if(isset($_POST['submit']))
 {
    registerf();
 } 
