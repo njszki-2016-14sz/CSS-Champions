@@ -43,29 +43,30 @@ function loginf(){
 } 
   ?>
 <html>
-<head>
-<title>Új szöveges dokumentum</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="ujszovegesdokumentum.css"/>
-<script src="ujjavasskriptmappa/ujszovegesdokumentum.js"></script>
-</head>
-<body>
-<div class="container">
-<div class="main">
-<h2>Lépj be az Uj szöveges dokumentum corporation weboldalára</h2>
-<form id="form_id" method="post" name="myform">
-<label>User Name :</label>
-<input type="text" name="username" id="username"/>
-<label>Password :</label>
-<input type="password" name="password" id="password"/>
-<input type="submit" name="send" value="Login" id="submit" onclick="validate()"/>
-</form>
-<div class="regi-link">
-<p>Nincs még felhasználod ezen nagyszerű oldalon ?</p> 
-<p>És ezáltal nem tudsz Új szöveges postokat létrehozni?</p> 
-<a class="link" href="/ujRegistraciosDokumentum.php">Ide</a> Kattintva regisztrálhatsz
-</div>
-</div>
-</div>
-</body>
+	<head>
+		<title>Új szöveges dokumentum</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="ujszovegesdokumentum.css"/>
+		<script src="ujjavasskriptmappa/ujszovegesdokumentum.js"></script>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="main">
+			<h2>Lépj be az Uj szöveges dokumentum corporation weboldalára</h2>
+			<form id="form_id" method="post" name="myform">
+			<label>User Name :</label>
+			<input type="text" name="username" id="username"/>
+			<label>Password :</label>
+			<input type="password" name="password" id="password"/>
+			<input type="submit" name="send" value="Login" id="submit" onclick="validate()"/>
+			</form>
+				<div class="regi-link">
+				<p>Nincs még felhasználod ezen nagyszerű oldalon ?</p> 
+				<p>És ezáltal nem tudsz Új szöveges postokat létrehozni?</p> 
+				<a class="link" href="/ujRegistraciosDokumentum.php">Ide</a> Kattintva regisztrálhatsz
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

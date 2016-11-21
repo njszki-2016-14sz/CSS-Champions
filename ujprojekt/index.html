@@ -1,60 +1,53 @@
-<?php
-session_start();
-	$User = $_SESSION['userdatas'];
-	
-	if($_SESSION['isloggedin'] != true ){
-		header("Location: /ujszovegesdokumentumlogin.php");
-	}
-	print_r($User);
-	
-	if($User["Munka"]== null || $User["Suli"] == null || $User["TeljesNev"]== null )
-	{
-		if($_SESSION["movetofirst"] != true)
-		{
-			header("Location: /ujprojekt/ujszovegesdokumentumadatmegadas.php");
-		}
-	}
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Új Szöveges Dokumentum</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="generator" content="Responsive Site Designer 1.5.1419">
+  <title>Új Szöveges Dokumetum</title>
+  <link rel="stylesheet" href="css/coffeegrinder.min.css">
+  <link rel="stylesheet" href="css/wireframe-theme.min.css">
   <script>document.createElement( "picture" );</script>
-  <link rel="stylesheet" href="css/ujszovegesindexcss.css">
+  <script src="js/picturefill.min.js" class="picturefill" async="async"></script>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
   <div class="row full-width-row header">
     <header class="coffee-span-12">
       <div class="container header-container">
-        <h1 class="page-heading">Új Szöveges Dokumentum</h1>
+        <h1 class="page-heading">Új Szöveges Dokumetum</h1>
         <p class="paragraph tagline">Hozz létre új szöveges postokat<br>
         </p>
       </div>
     </header>
   </div>
   <main class="row">
-    <div class="coffee-span-88">
-      <ul><div class="coffee-span-8">
+    <div class="coffee-span-4 coffee-549-span-12 coffee-700-span-12">
+      <div class="container nav-container">
         <h2 class="heading-1">Profilod</h2>
-   		<p class="paragraph">Név: <?php print($User["TeljesNev"]);?></p>
-		<p class="paragraph">E-mail: <?php print($User["email"]);?></p>
-          <hr> 
+   		<p class="paragraph">Bob Bob</p>
+        <div class="rule rule-2"> 
+          <hr>
+        </div>
+      </div>
       <h2 class="heading-1">Rólam</h2>
-     <p class="paragraph">Jelenlegi munkahelye: <?php print($User["Munka"]);?></p>
-	 <p class="paragraph">Legmagasabb végzetség: <?php print($User["Suli"]);?></p>
-	 <p class="paragraph">Kapcsolata: <?php print($User["Kapcsolat"]);?></p>
+     <p class="paragraph">Job: Bober</p>
+	 <p class="paragraph">School: Elementary Bob</p>
+      <div class="rule">
         <hr>
-    </div></ul>
-		<ul><div class="coffee-span-4">
+      </div>
+    </div>
+    <article class="coffee-span-8 coffee-880-span-8 coffee-549-span-12 coffee-700-span-12">
       <h2 class="heading-1">Szöveges Postok</h2>
-      </div></ul>
-    </div>
-    
-    </div>
+        <div class="rule rule-2">
+          <hr>
+        </div>
+      </div>
+    </article>
   </main>
   <div class="row full-width-row footer">
     <div class="coffee-span-12">
@@ -62,7 +55,7 @@ session_start();
         <div class="row">
           <div class="coffee-span-3 hidden-column"></div>
           <div class="coffee-span-9 coffee-880-span-12">
-            <ul><a class="link-text footer-nav" href="/ujprojekt/ujkijelentekzodokumentum.php">Kijelentkezés</a></ul>
+            <a class="link-text footer-nav" href="/ujlogindokumentum.php">Bejelentkezés</a>
           </div>
         </div>
         <div class="row">

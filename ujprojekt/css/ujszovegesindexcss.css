@@ -35,6 +35,18 @@ h1.page-heading {
 .fooldallink{
 	color: blue;
 }
+.coffee-span-88{
+	width:100%;
+	overflow: hidden;
+}
+.coffee-span-8{
+	width:300px;
+	float:left;
+}
+.coffee-span-4{
+	width: 70%;
+	text-align:center;
+}
 h2.heading-1 {
   color: #2d2d2d;
   font-weight: 700;
