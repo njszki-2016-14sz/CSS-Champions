@@ -1,6 +1,7 @@
 <?php
 session_start();
 	$User = $_SESSION['userdatas'];
+	print_r($User);
 	$_SESSION["movetofirst"] = true;
 	if($_SESSION['isloggedin'] != true ){
 		header("Location: /ujszovegesdokumentumlogin.php");
@@ -9,6 +10,11 @@ session_start();
 		
 		header("Location: /ujprojekt/index.php");
 	}
+	
+	
+
+	
+		
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,8 +41,8 @@ session_start();
   </div>
   <main class="row">
 
-    </div>
-    <article class="coffee-span-8 coffee-880-span-8 coffee-549-span-12 coffee-700-span-12">
+    <div>
+    <article class="coffee-880-span-8 coffee-549-span-12 coffee-700-span-12">
       <h2 class="heading-11">Kérjük add meg az adataid</h2>
         <div class="rule rule-11">
 		<form id="form-id" method="POST">
@@ -51,8 +57,9 @@ session_start();
 		<a class="fooldallink" href="ujbejelentkezestelenorzodokumentum.php">Ez most kihagyom tovább főoldalra</a>
           <hr>
         </div>
+		 </article>
       </div>
-    </article>
+   
   </main>
   <div class="row full-width-row footer">
     <div class="coffee-span-12">
@@ -83,12 +90,44 @@ session_start();
 
 </html>
 <?php
-/*function adatkitoltes(){
-	
-}*/
+function UpdateDB()
+	{
+		$User = $_SESSION['userdatas'];
+		$teljesNev = $_POST['nev'];
+		$suli = $_POST['suli'];
+		$munka = $_POST['munka'];
+		echo $teljesNev;
+		echo $suli;
+		echo $munka;
+		print_r($User);
+		if(isset($teljesNev)&&isset($suli)&&isset($munka))
+		{
+			print($teljesNev);
+			
+			$servername = "localhost";
+			$username = "root";
+			$dbname = "ujadatbazisdokumentum";
+			
+			$conn = new mysqli($servername, $username, "", $dbname);
+			
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			print($teljesNev);
+			$usernamef = $User['username'];
+			$User['TeljesNev'] =$teljesNev;
+			$User['Suli']=$suli;
+			$User['Munka']=$munka;
+			$sql = "UPDATE ujtabladokumentum SET TeljesNev='$teljesNev',Suli='$suli',Munka='$munka' WHERE (username='$usernamef');";
+			print($sql);
+			$conn->query($sql);
+			$_SESSION['userdatas'] = $User;
+			
+		}
+	}
+
 if(isset($_POST['submit'])){
-	echo"jóbb";
-	//adatkitoltes();
+	UpdateDB();
 	header("Location: /ujprojekt/index.php");
 }
 ?>

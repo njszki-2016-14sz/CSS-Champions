@@ -21,26 +21,23 @@ function loginf(){
 	$resultid = mysql_query($queryString, $db);
   
 	if(!$resultid){
-		die('Select query error: '.mysql_error());
+		die("Hibás felhasználó név vagy jelszó");//'Select query error: '.mysql_error());
 	}
   
 	$result = mysql_fetch_assoc($resultid);
-	print_r($result);
+	
   
-	if( $result['password']==$password&&$password!=null){
+	if($result['password']==$password&&$password!=null){
 		$_SESSION['isloggedin']=true;
 		$_SESSION['userdatas'] = $result;
 		header("Location: /ujprojekt/index.php");
         exit;
  }
 	else{
-		
+		print "Hibás jelszó";
 	}
 }
- if(isset($_POST['send']))
-{
-   loginf();
-} 
+
   ?>
 <html>
 	<head>
@@ -66,6 +63,12 @@ function loginf(){
 				<p>És ezáltal nem tudsz Új szöveges postokat létrehozni?</p> 
 				<a class="link" href="/ujRegistraciosDokumentum.php">Ide</a> Kattintva regisztrálhatsz
 				</div>
+				<?php 
+				if(isset($_POST['send']))
+				{
+				   loginf();
+				} 
+				?>
 			</div>
 		</div>
 	</body>

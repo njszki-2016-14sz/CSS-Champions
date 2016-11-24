@@ -33,42 +33,68 @@
 	$passwordconf=$_POST['passwordconf'];
 	$email=$_POST['email'];
 	$emailconf=$_POST['emailconf'];
-	if (isset($name)&&isset($password)&&isset($passwordconf)&&isset($email)&&isset($emailconf)&&$password==$passwordconf&&$emailconf==$email) 
+	$emailreg;
+	if($password!=$passwordconf)
+		echo "<h2>Nem egyeznek a jelszók</h2>";
+	
+	else if($email!=$emailconf)
+		echo "<h2>Nem egyeznek az e-mailcímek</h2>";
+	
+	else if(strlen($password)<6)
+		echo "<h2>Jelszónak minimum 6 karakter hosszúnak kell lennie</h2>";
+	
+	else if($email!=$emailconf)
+		echo "<h2>Nem egyeznek az e-mailcímek</h2>";
+	
+	else
 	{
-		$servername = "localhost";
-		$username = "root";
-		$dbname = "ujadatbazisdokumentum";
-		$conn = new mysqli($servername, $username, "", $dbname);
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		$sql = "SELECT * FROM ujtabladokumentum WHERE username LIKE ('$name');";
-		$asd=$conn->query($sql);
-		$result = $asd->fetch_row();
-		if ($result['1']!=$_POST['usname'])
-		{ 
-			$sql = "SELECT * FROM ujtabladokumentum WHERE email LIKE ('$email');";
+	
+		if (isset($name)&&isset($password)&&isset($passwordconf)&&isset($email)&&isset($emailconf)&&$password==$passwordconf&&$emailconf==$email) 
+		{
+			$servername = "localhost";
+			$username = "root";
+			$dbname = "ujadatbazisdokumentum";
+			$conn = new mysqli($servername, $username, "", $dbname);
+			
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			$sql = "SELECT * FROM ujtabladokumentum WHERE username LIKE ('$name');";
 			$asd=$conn->query($sql);
 			$result = $asd->fetch_row();
-		if ($result['3']!=$_POST['email']) 
-		{	
-			$conn = new mysqli($servername, $username, "", $dbname);
-			if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
+			
+			if ($result['1']!=$_POST['usname'])
+			{ 
+				$sql = "SELECT * FROM ujtabladokumentum WHERE email LIKE ('$email');";
+				$asd=$conn->query($sql);
+				$result = $asd->fetch_row();
+			
+				if ($result['3']!=$_POST['email']) 
+				{	
+					$conn = new mysqli($servername, $username, "", $dbname);
+					if ($conn->connect_error) 
+						die("Connection failed: " . $conn->connect_error);
+			
+			
+			
+					$sql = "INSERT INTO ujtabladokumentum (username, password, email)
+					VALUES ('$name', '$password', '$email');";
+					echo "Sikeres regisztráció";
+					$conn->query($sql);
+					header("Location: /ujszovegesdokumentumlogin.php");
+				}
+		
+				else {echo "Error: " . "The email is already taken" . "<br>" . $conn->error;}
+
+			}
+			else {echo "Error: " . "The username is already taken" . "<br>" . $conn->error;}
+		}
 	}
-	$sql = "INSERT INTO ujtabladokumentum (username, password, email)
-VALUES ('$name', '$password', '$email');";
-    echo "Sikeres regisztráció";
-	$conn->query($sql);
-	}else {echo "Error: " . "The email is already taken" . "<br>" . $conn->error;}
-}else {echo "Error: " . "The username is already taken" . "<br>" . $conn->error;}
-}
-if($password!=$passwordconf){echo "<h2>Nem egyeznek a jelszók</h2>";}
-if($email!=$emailconf){echo "<h2>Nem egyeznek az e-mailcímek</h2>";}
  }
  if(isset($_POST['submit']))
 {
    registerf();
+   
 } 
 ?>
     </div>

@@ -5,7 +5,6 @@ session_start();
 	if($_SESSION['isloggedin'] != true ){
 		header("Location: /ujszovegesdokumentumlogin.php");
 	}
-	print_r($User);
 	
 	if($User["Munka"]== null || $User["Suli"] == null || $User["TeljesNev"]== null )
 	{
@@ -46,7 +45,7 @@ session_start();
       <h2 class="heading-1">Rólam</h2>
      <p class="paragraph">Jelenlegi munkahelye: <?php print($User["Munka"]);?></p>
 	 <p class="paragraph">Legmagasabb végzetség: <?php print($User["Suli"]);?></p>
-	 <p class="paragraph">Kapcsolata: <?php print($User["Kapcsolat"]);?></p>
+	 <p class="paragraph">Kapcsolata: <?php if($User["Kapcsolat"] == "")print("Nincs kacsolatban");else print($User["Kapcsolat"]);?></p>
         <hr>
     </div></ul>
 		<ul><div class="coffee-span-4">
