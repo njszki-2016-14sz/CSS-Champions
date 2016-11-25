@@ -169,18 +169,22 @@ a.link-button.button-nav {
 }
 
 /* Layout Elements */
-
+body{
+	margin : 6px;
+}
 body > .row.full-width-row {
   max-width: none;
+  height: 65px;
 }
 
 body > .row.full-width-row.header {
-  border-bottom: 3px solid #a0a0a0;
+  /*border-bottom: 3px solid #a0a0a0;*/
   background-color: #2d2d2d;
 }
 
 body > .row.footer.full-width-row {
   background-color: #5b5b5b;
+  height: 40px;
 }
 
 .subgrid > .row > [class*='coffee-span-'] {

@@ -9,12 +9,7 @@ session_start();
 	else if($User["Munka"] != null && $User["Suli"] != null && $User["TeljesNev"] != null){
 		
 		header("Location: /ujprojekt/index.php");
-	}
-	
-	
-
-	
-		
+	}		
 ?>
 <!DOCTYPE html>
 <html>
