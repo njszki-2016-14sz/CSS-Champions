@@ -5,26 +5,26 @@ function loginf(){
 	session_start();
 	//unset($_SESSION);
     $_SESSION['username']=$username;
-	$db = mysql_connect('localhost', 'root', '');
+	$db = mysqli_connect('localhost', 'root', '');
 	
 	if(!$db){
 		die('Connection error: '.mysql_error());
 	}
   
-	$table = mysql_select_db('ujadatbazisdokumentum', $db);
+	$table = mysqli_select_db($db,'ujadatbazisdokumentum');
   
 	if(!$table){
 		die('Table selection error: '.mysql_error());
 	}
   
 	$queryString = "SELECT * FROM ujtabladokumentum WHERE username='$username';";
-	$resultid = mysql_query($queryString, $db);
+	$resultid = mysqli_query($db,$queryString);
   
 	if(!$resultid){
 		die("Hibás felhasználó név vagy jelszó");//'Select query error: '.mysql_error());
 	}
   
-	$result = mysql_fetch_assoc($resultid);
+	$result = mysqli_fetch_assoc($resultid);
 	
   
 	if($result['password']==$password&&$password!=null){

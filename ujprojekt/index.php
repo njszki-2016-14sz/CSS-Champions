@@ -51,6 +51,27 @@ session_start();
 		<div class="coffee-span-4">
       <h2 class="heading-1">Szöveges Postok</h2>
       </div>
+		<form action="" method="POST">
+			<input type="Text" name="TextField" id="TextField"></input>
+			<input type="submit" Value="Küldés"></input>
+		</form><?php
+		if(isset($_POST["TextField"]))
+		{
+			$date =date('m/d/Y', time());
+			$usname =$User['username'];
+			$usid=$User['id'];
+			$TextFieldText=$_POST['TextField'];
+			$db = new mysqli('localhost', 'root', '','ujadatbazisdokumentum');
+			$sql="INSERT INTO ujtabladokumentumpost (Text, CreatonDate, Likes, OwnerUser, UserID) VALUES ('$TextFieldText', '$date', 0,'$usname', '$usid');";
+			echo "elküldve";
+			$db->query($sql);
+		}
+		$db = new mysqli('localhost', 'root', '','ujadatbazisdokumentum');
+		$rawdata=$db->query("SELECT * FROM ujtabladokumentumpost");
+		while ($row = mysqli_fetch_assoc($rawdata)){
+		echo $row['Text'].$row['OwnerUser'].$row['date'];
+		}
+		?>
     </div>
     
     </div>
