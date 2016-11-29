@@ -22,6 +22,8 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Új Szöveges Dokumentum</title>
   <script>document.createElement( "picture" );</script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
   <link rel="stylesheet" href="css/ujszovegesindexcss.css">
 </head>
 
@@ -50,9 +52,9 @@ session_start();
     </div>
 		<div class="coffee-span-4">
       <h2 class="heading-1">Szöveges Postok</h2>
-      </div>
+		<div class="coffee-span-411">
 		<form action="" method="POST">
-			<input type="Text" name="TextField" id="TextField"></input>
+			<textarea name="TextField"> Easy! You should check out MoxieManager!</textarea>
 			<input type="submit" Value="Küldés"></input>
 		</form><?php
 		if(isset($_POST["TextField"]))
@@ -69,9 +71,21 @@ session_start();
 		$db = new mysqli('localhost', 'root', '','ujadatbazisdokumentum');
 		$rawdata=$db->query("SELECT * FROM ujtabladokumentumpost");
 		while ($row = mysqli_fetch_assoc($rawdata)){
-		echo $row['Text'].$row['OwnerUser'].$row['date'];
+		echo "<div class="."posts".">".
+				"<div class="."textcon".">".$row['Text']."</div>".
+				"<div class="."userdateboth".">".
+				"<div class="."usercon".">".$row['OwnerUser']."</div>".
+				"<div class="."datecon".">".$row['CreatonDate']."</div>".
+			 "</div>".
+			 "</div>";
+		
 		}
 		?>
+		</div>
+		</div>
+		<div class="coffee-span-45">
+			<p>
+		</div>
     </div>
     
     </div>

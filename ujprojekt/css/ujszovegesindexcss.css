@@ -40,12 +40,47 @@ h1.page-heading {
 	overflow: hidden;
 }
 .coffee-span-8{
-	width:300px;
+	width:25%;
+	height:800px;
 	float:left;
+	background-color:RGB(232,232,232);
 }
 .coffee-span-4{
-	width: 70%;
+	width: 50%;
 	text-align:center;
+	float:left;
+}
+.coffee-span-411{
+	width:100%;
+	text-align:center-left;
+}
+.coffee-span-45{
+	width: 25%;
+	height:800px;
+	float:right;
+	background-color:RGB(232,232,232);
+}
+.userdateboth{
+	width: 100%;
+}
+.posts{
+	width:100%;
+	border-radius:14px;
+	border-style: groove ;
+	text-align:center;
+}
+.textcon{
+	width:80%;
+	text-align:left;
+}
+.usercon{
+	width:50%;
+	text-align:left;
+}
+.datecon{
+	
+	width:45%;
+	text-align:right;
 }
 h2.heading-1 {
   color: #2d2d2d;
