@@ -54,12 +54,12 @@ session_start();
       <h2 class="heading-1">Szöveges Postok</h2>
 		<div class="coffee-span-411">
 		<form action="" method="POST">
-			<textarea name="TextField"> Easy! You should check out MoxieManager!</textarea>
+			<textarea name="TextField">Hozz létre szöveges postokat!</textarea>
 			<input type="submit" Value="Küldés"></input>
 		</form><?php
 		if(isset($_POST["TextField"]))
 		{
-			$date =date('m/d/Y', time());
+			$date =date('Y-m-d', time());
 			$usname =$User['username'];
 			$usid=$User['id'];
 			$TextFieldText=$_POST['TextField'];
@@ -69,7 +69,7 @@ session_start();
 			$db->query($sql);
 		}
 		$db = new mysqli('localhost', 'root', '','ujadatbazisdokumentum');
-		$rawdata=$db->query("SELECT * FROM ujtabladokumentumpost");
+		$rawdata=$db->query("SELECT * FROM ujtabladokumentumpost ORDER BY ID DESC");
 		while ($row = mysqli_fetch_assoc($rawdata)){
 		echo "<div class="."posts".">".
 				"<div class="."textcon".">".$row['Text']."</div>".
