@@ -55,7 +55,7 @@ h1.page-heading {
 	text-align:center-left;
 }
 .coffee-span-45{
-	width: 25%;
+	width: 24.5%;
 	height:800px;
 	float:right;
 	background-color:RGB(232,232,232);
@@ -68,6 +68,7 @@ h1.page-heading {
 	border-radius:14px;
 	border-style: groove ;
 	text-align:center;
+	padding-bottom: 20px;
 }
 .textcon{
 	width:80%;
@@ -81,6 +82,10 @@ h1.page-heading {
 	
 	width:45%;
 	text-align:right;
+}
+.hidden{
+	visibility: hidden;
+	height : 1px;
 }
 h2.heading-1 {
   color: #2d2d2d;

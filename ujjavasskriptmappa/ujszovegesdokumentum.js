@@ -93,3 +93,13 @@ var pwd = document.getElementById("password");
 	strength.innerHTML = '<span style="color:red">Weak!</span>';
 	}
 }
+ $(function () {
+	$("#termslink").click(function (e) {
+		e.preventDefault();
+		if ($('#showhide').hasClass('hidden')) {
+			$('#showhide').removeClass('hidden');
+		}else{
+			$('#showhide').addClass('hidden');
+		}
+	});
+});

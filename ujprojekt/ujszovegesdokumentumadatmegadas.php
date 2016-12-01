@@ -1,7 +1,6 @@
 <?php
 session_start();
 	$User = $_SESSION['userdatas'];
-	print_r($User);
 	$_SESSION["movetofirst"] = true;
 	if($_SESSION['isloggedin'] != true ){
 		header("Location: /ujszovegesdokumentumlogin.php");

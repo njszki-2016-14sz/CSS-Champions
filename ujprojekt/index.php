@@ -23,10 +23,11 @@ session_start();
   <title>Új Szöveges Dokumentum</title>
   <script>document.createElement( "picture" );</script>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+	<script src="../ujjavasskriptmappa/jquery-3.1.1.js"></script>
+	<script src="../ujjavasskriptmappa/ujszovegesdokumentum.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
   <link rel="stylesheet" href="css/ujszovegesindexcss.css">
 </head>
-
 <body>
   <div class="row full-width-row header">
     <header class="coffee-span-12">
@@ -52,11 +53,15 @@ session_start();
     </div>
 		<div class="coffee-span-4">
       <h2 class="heading-1">Szöveges Postok</h2>
+	  <a id="termslink" href="#" class="link">Új poszt</a>
 		<div class="coffee-span-411">
+		<div id="showhide"class="formdiv hidden">
 		<form action="" method="POST">
 			<textarea name="TextField">Hozz létre szöveges postokat!</textarea>
 			<input type="submit" Value="Küldés"></input>
-		</form><?php
+		</form>
+		</div>
+		<?php
 		if(isset($_POST["TextField"]))
 		{
 			$date =date('Y-m-d', time());
@@ -65,7 +70,7 @@ session_start();
 			$TextFieldText=$_POST['TextField'];
 			$db = new mysqli('localhost', 'root', '','ujadatbazisdokumentum');
 			$sql="INSERT INTO ujtabladokumentumpost (Text, CreatonDate, Likes, OwnerUser, UserID) VALUES ('$TextFieldText', '$date', 0,'$usname', '$usid');";
-			echo "elküldve";
+			$sql="INSERT INTO ujtabladokumentumpost (Text, CreatonDate, Likes, OwnerUser, UserID) VALUES ('$TextFieldText', '$date', 0,'$usname', '$usid');";
 			$db->query($sql);
 		}
 		$db = new mysqli('localhost', 'root', '','ujadatbazisdokumentum');
@@ -74,8 +79,8 @@ session_start();
 		echo "<div class="."posts".">".
 				"<div class="."textcon".">".$row['Text']."</div>".
 				"<div class="."userdateboth".">".
-				"<div class="."usercon".">".$row['OwnerUser']."</div>".
-				"<div class="."datecon".">".$row['CreatonDate']."</div>".
+				"<div class="."usercon"."><b>Postolta: ".$row['OwnerUser']."</b></div>".
+				"<div class="."datecon"."><b>".$row['CreatonDate']."</b></div>".
 			 "</div>".
 			 "</div>";
 		
