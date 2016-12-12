@@ -1,0 +1,47 @@
+Változók:
+Int String Boolean Float Double Char 
+Array ArrayList
+Int[] tomb = new inr[];
+Int[][] matrix= new Int[3][3];
+
+
+Komponensek:
+Button
+TextView
+EditView
+Layout-ok (Grid,Relative,Linear,Tabble,Frame,Constraint)
+Timer
+
+Floating Action Bar
+TextInputEditText
+Toolbar
+TextInputLayout
+
+Notification(Manager, Builder)
+Serviec-ek
+
+Funkciók:
+findViewById(R.id.valami);
+R(resource)[Komponens és változó tároloó]
+onClick(), SetOnClickListener(new OnClickListener)
+getText().toString;
+setText();
+
+.equals() /.equalsIgnoreCasing();
+.isEmpty();
+
+startIntent(intent);
+
+startService(service);
+stopService(service);
+
+getMenuInflater().inflater(R.menu.main, menu); (xml-t a resource mapából hozzá fûzzük az adott activity-hez)
+getitemId(); vissza ad egy id-t intként
+intent.putExtra(milyen néven, mit); pl:  (USER_ARRAY, User);
+setError();  (error message beálítása)
+requestFocus(); komponensre való focusálás
+
+scheduleAtFixedRate (new TimerTask{})) {}, Start Delay Interval)
+onDestroy(); dögölj meg! (Intent/service/komponens törlése
+OnCreate(); Interface Generálás, Komponensek és változók deklarálása
+
